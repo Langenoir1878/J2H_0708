@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <link rel="shortcut icon" href="">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>testing contents
+        
+            <p id="test_p">click to replace me</p>
+            
+        </div>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="catsy_j2h.js"></script>
+        <script>
+           
+               var item_id = document.getElementById("test_p");
+               item_id.addEventListener("click",get_json_data);
+           
+            function get_json_data(){
+            $.getJSON('test.json',function(data){
+                console.log(data.name);
+                item_id.innerHTML = data.name;
+            });
+        }
+            $(function(){
+                
+                
+            });
+        </script>
+    </body>
+</html>
