@@ -82,8 +82,8 @@ more to do in future: responsive layout, options and adding to cart functions
                 <img src="images/img1.jpg" alt="" width="300px" height="387px" />             
                 <div class="stats">         
                     <div class="stats-container">
-                        <span class="product_name"><p id="item1_info"></p></span>    
-                        <p id="item1_num"></p>                                              
+                        <p id="e1" class="product_name"></p>    
+                        <p id="e1n"></p>                                              
                     </div>                         
                 </div>
             </div>
@@ -94,7 +94,7 @@ more to do in future: responsive layout, options and adding to cart functions
                 <img src="images/img2.jpg" alt="" width="300px" height="387px" />             
                 <div class="stats">         
                     <div class="stats-container">
-                        <span class="product_name">Winter Catalog</span>    
+                        <span class="product_name"><p id="e2"></p></span>    
                         <p>12573</p>                                              
                     </div>                         
                 </div>
@@ -113,6 +113,38 @@ more to do in future: responsive layout, options and adding to cart functions
             </div>
         </div>
 
+<script>
+               var item1_info = document.getElementById("e1");
+               var item2_info = document.getElementById("e2");
+               var item3_info = document.getElementById("e3");
+               
+               var item1_num = document.getElementById("e1n");
+               var item2_num = document.getElementById("e2n");
+               var item3_num = document.getElementById("e3n");
+              
+                $.ajax({
+                    url:'catalogs.json',
+                    dataType:'json',
+                    type:'get',
+                    cache:false,
+                    success:function(data){
+                        var arrString =[];
+                        $(data.catalogs).each(function(index, value){
+                            console.log(value.number + value.name);
+                            //loop to assign new values
+                           
+                           arrString+= value.name + ",";
+                           return arrString;    
+                        });
+                        var arr = arrString.split(",");
+                        item1_info.innerHTML = arr[0];
+                        item2_info.innerHTML = arr[1];
+                        item3_info.innerHTML = arr[2];
+                        }
+                });
+
+
+</script>
 
 
 </body>
