@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="shortcut icon" href="">
+        <title>It Worked! </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+    
+        <p id="e1"></p>
+        <p id="e2"></p>
+        <p id="e3"></p>
+        </div>
+        <div id="resultDiv"></div>
+         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="catsy_j2h.js"></script>
+        <script>
+        
+               var item1_info = document.getElementById("e1");
+               var item2_info = document.getElementById("e2");
+               var item3_info = document.getElementById("e3");
+         
+               
+   
+   
+   
+   
+                $.ajax({
+                    url:'catalogs.json',
+                    dataType:'json',
+                    type:'get',
+                    cache:false,
+                    success:function(data){
+                        var arrString =[];
+                        $(data.catalogs).each(function(index, value){
+                            console.log(value.number + value.name);
+                            //loop to assign new values
+                           
+                           arrString+= value.name + ",";
+                           return arrString;    
+                        });
+                        var arr = arrString.split(",");
+                        item1_info.innerHTML = arr[0];
+                        item2_info.innerHTML = arr[1];
+                        item3_info.innerHTML = arr[2];
+                        }
+                });
+
+   
+        </script>
+    </body>
+</html>
