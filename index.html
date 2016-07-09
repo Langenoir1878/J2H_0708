@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <!--
-Now:load to table function
+Now:parseData, reset table functions
 
-todo next: add images to 3 sample existing orders
+todo next: 1. add CSS layout rules to table
+           2. code a function to extract Number and name of item
+           3. code the shopping cart frame and containers of different divs
+           4. TDD process to advance functionalities
+           5. add images and css, jquery
+           6. code integration and documentation 
 
 -->
 <html>
@@ -29,7 +34,7 @@ todo next: add images to 3 sample existing orders
             <td id = 'c2'> Update Date </td>
             <td id = 'c3'> Update By </td>
             <td id = 'c4'> Create By </td>
-            <td id = 'c5'> ID Num </td>
+            <td id = 'c5'> Number </td>
             <td id = 'c6'> Name </td>
             <td id = 'c7'> Count </td>
         </tr>
@@ -55,31 +60,48 @@ todo next: add images to 3 sample existing orders
                     var myArray = JSON.parse(myRequest.responseText);
 
                     //parse json array
-
+                    parseData(myArray);
                 }
-        };
+            };
 
         //request handlings
-
+        //original json file has been uploaded to server: https://api.myjson.com/bins/1ik2b, 
+        //internet connection needed to load the file to table
+        myRequest.open('GET', 'https://api.myjson.com/bins/1ik2b', true);
+        myRequest.send();
 
 
 
 
         //parseData
-        function parseData(arr) {} 
+        function parseData(arr) {
+            resultDiv.style.border = "solid";
+            for (var i = 0; i < arr.length; i++){
+                if(i%2 == 0){
+                    resultDiv.innerHTML += "<tr>" + "<td>" + arr[i].createDate + "</td>" + "<td>" + arr[i].updateDate + "</td>" + "<td>" + arr[i].updateUserName + "</td>" + "<td>" + arr[i].createUserName + "</td>" + "<td>" + arr[i].id + "</td>"  + "<td>" + arr[i].name + "</td>"+ "<td>" + arr[i].childrenCount + "</td>" + "</tr>";
+                }else{
+                    resultDiv.innerHTML += "<tr class = 'data'>" + "<td>" + arr[i].createDate + "</td>" + "<td>" + arr[i].updateDate + "</td>" + "<td>" + arr[i].updateUserName + "</td>" + "<td>" + arr[i].createUserName + "</td>" + "<td>" + arr[i].id + "</td>"  + "<td>" + arr[i].name + "</td>"+ "<td>" + arr[i].childrenCount + "</td>" + "</tr>";
+                }
 
-
-
-
-
-
-
-
+            };
+        } 
+    }
         //deleteJSTable
-        function deleteJSTable(){}
+        function deleteJSTable(){
+            btn_load.disabled = false;
+            btn_reset.disabled = true;
 
+            var resultDiv = document.getElementById('results');
+        
+            while (resultDiv.firstChild) {
+                resultDiv.removeChild(resultDiv.firstChild);
+            }
+            
+            //show ori columns
 
+            resultDiv.innerHTML += "<tr id = 'head'>" + "<td id = 'c1'> Create Date </td>" + "<td id = 'c2'> Update Date </td>"  + "<td id ='c3'> Updated By </td>" + "<td id = 'c4'> Created By </td>" + "<td id = 'c5'> Number </td>" + "<td id = 'c6'> Name </td>" + "<td id = 'c7'> Count </td>";
 
+    }
 
 
 
