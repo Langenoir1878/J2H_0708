@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!--
-09:28:54 pm begins:
-JSON to HTML Table Format Module
+Now:load to table function
 
 todo next: add images to 3 sample existing orders
 
@@ -24,45 +23,50 @@ todo next: add images to 3 sample existing orders
         <button id = "load" onclick="jsAjaxHandler()" type="button">Load Data</button>
         <button id = "reset" onclick = "deleteJSTable()" disabled = "true">Reset</button>
         <!--p id="test_p">click to replace me</p-->
-           
-
-
-
-
-
+        <table id = "results">
+        <tr id = 'head'>
+            <td id = 'c1'> Create Date </td>
+            <td id = 'c2'> Update Date </td>
+            <td id = 'c3'> Update By </td>
+            <td id = 'c4'> Create By </td>
+            <td id = 'c5'> ID Num </td>
+            <td id = 'c6'> Name </td>
+            <td id = 'c7'> Count </td>
+        </tr>
+        </table>  
 
         </div>
         <!--div id="resultDiv"></div-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
         <script>
+        var btn_load = document.getElementById("load");
+        var btn_reset = document.getElementById("reset");
+
+        //jsAjaxHandler
+        function jsAjaxHandler(){
+            var resultDiv = document.getElementById('results');
+
+            btn_load.disabled = true;
+            btn_reset.disabled = false;
+
+            var myRequest = new XMLHttpRequest();
+            myRequest.onreadystatechange = function(){
+                //prepare reading json file from server storage
+                if (myRequest.readyState === 4 && myRequest.status === 200) {
+                    var myArray = JSON.parse(myRequest.responseText);
+
+                    //parse json array
+
+                }
+        };
+
+        //request handlings
+
+
+
+
+
+        //parseData
+        function parseData(arr) {} 
 
 
 
@@ -71,6 +75,8 @@ todo next: add images to 3 sample existing orders
 
 
 
+        //deleteJSTable
+        function deleteJSTable(){}
 
 
 
@@ -78,34 +84,6 @@ todo next: add images to 3 sample existing orders
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
            /*
                var item_id = document.getElementById("test_p");
                item_id.addEventListener("click",get_json_data);
