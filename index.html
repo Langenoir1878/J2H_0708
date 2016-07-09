@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+09:28:54 pm begins:
+JSON to HTML Table Format Module
+
+todo next: add images to 3 sample existing orders
+
 -->
 <html>
     <head>
@@ -12,14 +14,98 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>testing contents
-        
-            <p id="test_p">click to replace me</p>
-            <div id="resultDiv"></div>
-        </div>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="catsy_j2h.js"></script>
+
+
+        <h1>Catsy JSON2HTML File Convertor System</h1>
+
+        <div>
+        <button id = "load" onclick="jsAjaxHandler()" type="button">Load Data</button>
+        <button id = "reset" onclick = "deleteJSTable()" disabled = "true">Reset</button>
+        <!--p id="test_p">click to replace me</p-->
+           
+
+
+
+
+
+
+        </div>
+        <!--div id="resultDiv"></div-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
         <script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
            /*
                var item_id = document.getElementById("test_p");
                item_id.addEventListener("click",get_json_data);
@@ -30,84 +116,16 @@ and open the template in the editor.
                 item_id.innerHTML = data.catalogs;
             });
         }
-        */
+       
        
        //var catalogs = [];//test frame
-               
-        var catalogs=[
-        {
-            "createDate": 1295970075503,
-            "updateDate": 1459864507189,
-            "updateUserName": "Apsiva Administrator",
-            "createUserName": "Apsiva Administrator",
-            "id": 12573,
-            "name": "Winter Catalog",
-            "number": "12573",
-            "childrenCount": 27,
-            "allowedRoles": {
-                "311": "t",
-                "312": "t",
-                "313": "t",
-                "314": "t",
-                "315": "t"
-            },
-            "printActive": 0,
-            "webActive": 1,
-            "beginDate": 1295935200000,
-            "endDate": 1295935200000,
-            "catalogTypeId": 6626,
-            "locked": 0
-        },
-        {
-            "createDate": 1335813204083,
-            "updateDate": 1459864507189,
-            "updateUserName": "Apsiva Administrator",
-            "createUserName": "Apsiva Administrator",
-            "id": 582252,
-            "name": "Monthly Flyer",
-            "number": "582252",
-            "childrenCount": 5,
-            "allowedRoles": {
-                "311": "t",
-                "312": "t",
-                "313": "t",
-                "314": "t",
-                "315": "t"
-            },
-            "printActive": 0,
-            "webActive": 1,
-            "beginDate": 1335762000000,
-            "endDate": 1335762000000,
-            "catalogTypeId": 6626,
-            "locked": 1
-        },
-        {
-            "createDate": 1466521901778,
-            "updateDate": 1466521901778,
-            "updateUserName": "Apsiva Administrator",
-            "createUserName": "Apsiva Administrator",
-            "id": 4004618690,
-            "name": "New Pricebook",
-            "number": "4004618690",
-            "childrenCount": 1,
-            "allowedRoles": {
-                "311": "t",
-                "312": "t",
-                "313": "t",
-                "314": "t",
-                "315": "t"
-            },
-            "printActive": 0,
-            "webActive": 0,
-            "catalogTypeId": 6626,
-            "locked": 0
-        }
-    ];       
+        //uploaded json file to server: https://api.myjson.com/bins/1ik2b
+             
             $(function(){
                 var JSONString = JSON.stringify(catalogs);
                 $('#resultDiv').html(JSONString);
               //will output to string of obj  
-            });
+            }); */
         </script>
     </body>
 </html>
