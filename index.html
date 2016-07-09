@@ -32,9 +32,77 @@ and open the template in the editor.
         }
         */
        
-       var catalogs = [];//test frame
+       //var catalogs = [];//test frame
                
-               
+        var catalogs=[
+        {
+            "createDate": 1295970075503,
+            "updateDate": 1459864507189,
+            "updateUserName": "Apsiva Administrator",
+            "createUserName": "Apsiva Administrator",
+            "id": 12573,
+            "name": "Winter Catalog",
+            "number": "12573",
+            "childrenCount": 27,
+            "allowedRoles": {
+                "311": "t",
+                "312": "t",
+                "313": "t",
+                "314": "t",
+                "315": "t"
+            },
+            "printActive": 0,
+            "webActive": 1,
+            "beginDate": 1295935200000,
+            "endDate": 1295935200000,
+            "catalogTypeId": 6626,
+            "locked": 0
+        },
+        {
+            "createDate": 1335813204083,
+            "updateDate": 1459864507189,
+            "updateUserName": "Apsiva Administrator",
+            "createUserName": "Apsiva Administrator",
+            "id": 582252,
+            "name": "Monthly Flyer",
+            "number": "582252",
+            "childrenCount": 5,
+            "allowedRoles": {
+                "311": "t",
+                "312": "t",
+                "313": "t",
+                "314": "t",
+                "315": "t"
+            },
+            "printActive": 0,
+            "webActive": 1,
+            "beginDate": 1335762000000,
+            "endDate": 1335762000000,
+            "catalogTypeId": 6626,
+            "locked": 1
+        },
+        {
+            "createDate": 1466521901778,
+            "updateDate": 1466521901778,
+            "updateUserName": "Apsiva Administrator",
+            "createUserName": "Apsiva Administrator",
+            "id": 4004618690,
+            "name": "New Pricebook",
+            "number": "4004618690",
+            "childrenCount": 1,
+            "allowedRoles": {
+                "311": "t",
+                "312": "t",
+                "313": "t",
+                "314": "t",
+                "315": "t"
+            },
+            "printActive": 0,
+            "webActive": 0,
+            "catalogTypeId": 6626,
+            "locked": 0
+        }
+    ];       
             $(function(){
                 var JSONString = JSON.stringify(catalogs);
                 $('#resultDiv').html(JSONString);
