@@ -1,34 +1,35 @@
 <!doctype html>
 <html lang="zh">
 <head>
+<link rel="shortcut icon" href="">
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Catsy Simulated Shopping View</title>
 
 <!-- need CSS -->
-<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 <link rel="stylesheet" type="text/css" href="css/default.css">
 <link rel='stylesheet' href='http://fonts.useso.com/css?family=Open+Sans:400,600,700' >
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 
 </head>
 <body>
-	<div id="wrapper">
-<div id="header">	
-	<ul>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <div id="wrapper">
+<div id="header">   
+    <ul>
         <li><a href="#">Home</a></li>
         <li><a href="inventory.html">INVENTORY</a></li>
         <li><a href="#">CONTACT</a></li>                                         
-    </ul>		
+    </ul>       
 </div>
 
 <div id="sidebar">
-	
+    
     <h3>CATEGORIES</h3>
     <div class="checklist categories">
-    	<ul>
-        	<li><a href=""><span></span>Cargo Pant</a></li>
+        <ul>
+            <li><a href=""><span></span>Cargo Pant</a></li>
             <li><a href=""><span></span>Cargo Shorts</a></li>
             <li><a href=""><span></span>Flat Front</a></li>
             <li><a href=""><span></span>Short Sleeve Shirt</a></li>
@@ -43,8 +44,8 @@
     
     <h3>COLOURS</h3>
     <div class="checklist categories">
-    	<ul>
-        	<li><a href=""><span></span>613</a></li>
+        <ul>
+            <li><a href=""><span></span>613</a></li>
             <li><a href=""><span></span>BBC</a></li>
             <li><a href=""><span></span>BKP</a></li>
             <li><a href=""><span></span>BLA</a></li>
@@ -79,7 +80,7 @@ more to do in future: responsive layout, options and adding to cart functions
     <!-- HSample items loaded from Json file -->
         <div class="product">  
             <div class="product-front">
-                <img src="images/img1.jpg" alt="" width="300px" height="387px" />             
+                <img src="images/img1.jpg" alt="" width="300px" height="387px"/>             
                 <div class="stats">         
                     <div class="stats-container">
                         <p id="e1" class="product_name"></p>    
@@ -91,11 +92,11 @@ more to do in future: responsive layout, options and adding to cart functions
 
         <div class="product">  
             <div class="product-front">
-                <img src="images/img2.jpg" alt="" width="300px" height="387px" />             
+                <img src="images/img2.jpg" alt="" width="300px" height="387px"/>             
                 <div class="stats">         
                     <div class="stats-container">
-                        <span class="product_name"><p id="e2"></p></span>    
-                        <p>12573</p>                                              
+                        <p id = "e2" class="product_name"></p>   
+                        <p id="e2n"></p>                                              
                     </div>                         
                 </div>
             </div>
@@ -103,11 +104,11 @@ more to do in future: responsive layout, options and adding to cart functions
 
         <div class="product">  
             <div class="product-front">
-                <img src="images/img3.jpg" alt="" width="300px" height="387px" />             
+                <img src="images/img3.jpg" alt="" width="300px" height="387px"/>             
                 <div class="stats">         
                     <div class="stats-container">
-                        <span class="product_name">Winter Catalog</span>    
-                        <p>12573</p>                                              
+                        <p id="e3" class="product_name"></p>    
+                        <p id="e3n"></p>                                              
                     </div>                         
                 </div>
             </div>
@@ -129,17 +130,26 @@ more to do in future: responsive layout, options and adding to cart functions
                     cache:false,
                     success:function(data){
                         var arrString =[];
+                        var numString =[];
                         $(data.catalogs).each(function(index, value){
                             console.log(value.number + value.name);
                             //loop to assign new values
-                           
+                           numString+= value.number + ",";
                            arrString+= value.name + ",";
-                           return arrString;    
-                        });
+                           return arrString , numString;    
+                            });
+                            
                         var arr = arrString.split(",");
+                       
                         item1_info.innerHTML = arr[0];
                         item2_info.innerHTML = arr[1];
                         item3_info.innerHTML = arr[2];
+                        
+                        var num = numString.split(",");
+                        item1_num.innerHTML = num[0];
+                        item2_num.innerHTML = num[1];
+                        item3_num.innerHTML = num[2];
+                        
                         }
                 });
 
